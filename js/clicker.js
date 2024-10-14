@@ -39,62 +39,62 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Björ? Björ',
+        description: 'Unlocked: Björ? Björ',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Björk? Björk',
+        description: 'Unlocked: Björk? Björk',
         requiredUpgrades: 10,
         acquired: false,
     },
     {
-        description: 'Björfärssås',
+        description: 'Unlocked: Björfärssås',
         requiredClicks: 10,
         acquired: false,
     },
     {
-        description: 'Björfärs björfärs björfärs björfärssås björfärssås björfärssås',
+        description: 'Unlocked: Björfärs björfärs björfärs björfärssås björfärssås björfärssås',
         requiredClicks: 10000,
         acquired: false,
     },
     {
-        description: 'BJÖRFÄRSÅS?',
+        description: 'Unlocked: BJÖRFÄRSÅS?',
         requiredClicks: 500,
         acquired: false,
     },
     {
-        description: 'Historien bakom BB',
+        description: 'Unlocked: Historien bakom BB',
         requiredUpgrades: 50,
         acquired: false,
     },
     {
-        description: 'Ett gemensamt mål',
+        description: 'Unlocked: Ett gemensamt mål',
         requiredUpgrades: 100,
         acquired: false,
     },
     {
-        description: 'Björfärssåsigt',
+        description: 'Unlocked: Björfärssåsigt',
         requiredTotal: 500,
         acquired: false,
     },
     {
-        description: 'Björfärssåsigare',
+        description: 'Unlocked: Björfärssåsigare',
         requiredTotal: 1500,
         acquired: false,
     },
     {
-        description: 'Galen björfärs',
+        description: 'Unlocked: Galen björfärs',
         requiredTotal: 50000,
         acquired: false,
     },
     {
-        description: 'Massproduktion',
+        description: 'Unlocked: Massproduktion',
         requiredTotal: 100000,
         acquired: false,
     },
     {
-        description: 'Det björfärssåsiga guldet',
+        description: 'Unlocked: Det björfärssåsiga guldet',
         requiredTotal: 200000,
         acquired: false,
     },
@@ -320,5 +320,5 @@ function message(text, type) {
     }
     setTimeout(() => {
         p.parentNode.removeChild(p);
-    }, 2000);
+    }, 3000);
 }
