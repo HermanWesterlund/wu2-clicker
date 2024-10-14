@@ -23,7 +23,8 @@
 }
 
 body {
-    background-color: var(--color-light);
+    background: url('../img/Skogsbakgrund.png');
+    background-size: cover;
     color: var(--color-dark);
     font-family: sans-serif;
     font-size: var(--step-0);
@@ -54,6 +55,8 @@ audio {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
     gap: var(--space-s-m);
+    background-color: rgba(240, 248, 255, 0.6);
+    padding: 1rem;
 }
 .footer > * {
     font-size: var(--step--1);
@@ -121,10 +124,15 @@ audio {
 }
 
 /* game-currency är en lista med list items */
-.item > h3 {
+.item > h3, h2 {
     display: flex;
     justify-content: space-between;
     gap: var(--space-xs-s);
+    background-color: rgba(240, 248, 255, 0.6);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 @media (max-width: 30rem) {
@@ -138,10 +146,10 @@ audio {
 
 /* för spelelementet används #id som selektor för att skapa css reglerna */
 #game-button {
-    width: var(--space-4xl-5xl);
-    height: var(--space-4xl-5xl);
+    width: 15rem;
+    height: 15rem;
     font-size: var(--step-2);
-    background: url('../img/brett-meliti-RgkYMfFopIA-unsplash-removebg-preview.png');
+    background: url('../img/Björfärs.png');
     background-size: cover;
     background-position: center;
     border: 2px solid transparent;
@@ -203,6 +211,7 @@ audio {
     border: 1px solid var(--color-dark-transparent);
     margin: var(--space-xs-s) 0;
     padding: var(--space-s-m) var(--space-xs-s);
+    background-color: rgba(240, 248, 255, 0.6);
 }
 
 .card:hover {

@@ -15,6 +15,7 @@ const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
+const clickAudio = document.querySelector("#splat")
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -27,6 +28,7 @@ let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
 let acquiredUpgrades = 0;
+let acquiredBjörfärs = 0;
 let last = 0;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
 let active = false; // exempel för att visa att du kan lägga till klass för att indikera att spelare får valuta
@@ -37,25 +39,66 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Museet är redo att öppna, grattis! ',
+        description: 'Björ? Björ',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något, fortsätt gräva!',
+        description: 'Björk? Björk',
         requiredUpgrades: 10,
         acquired: false,
     },
     {
-        description: 'Klickare, med licens att klicka!',
+        description: 'Björfärssås',
         requiredClicks: 10,
         acquired: false,
     },
     {
-        description: 'Tac-2 god!',
+        description: 'Björfärs björfärs björfärs björfärssås björfärssås björfärssås',
         requiredClicks: 10000,
         acquired: false,
     },
+    {
+        description: 'BJÖRFÄRSÅS?',
+        requiredClicks: 500,
+        acquired: false,
+    },
+    {
+        description: 'Historien bakom BB',
+        requiredUpgrades: 50,
+        acquired: false,
+    },
+    {
+        description: 'Ett gemensamt mål',
+        requiredUpgrades: 100,
+        acquired: false,
+    },
+    {
+        description: 'Björfärssåsigt',
+        requiredTotal: 500,
+        acquired: false,
+    },
+    {
+        description: 'Björfärssåsigare',
+        requiredTotal: 1500,
+        acquired: false,
+    },
+    {
+        description: 'Galen björfärs',
+        requiredTotal: 50000,
+        acquired: false,
+    },
+    {
+        description: 'Massproduktion',
+        requiredTotal: 100000,
+        acquired: false,
+    },
+    {
+        description: 'Det björfärssåsiga guldet',
+        requiredTotal: 200000,
+        acquired: false,
+    },
+    
 ];
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
@@ -76,6 +119,9 @@ clickerButton.addEventListener(
         // håll koll på hur många gånger spelaren klickat
         numberOfClicks += 1;
         // console.log(clicker.score);
+        acquiredBjörfärs += moneyPerClick;
+
+        clickAudio.play()
     },
     false
 );
@@ -97,6 +143,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
+        acquiredBjörfärs += moneyPerSecond;
         last = timestamp;
     }
 
@@ -125,6 +172,13 @@ function step(timestamp) {
         } else if (
             achievement.requiredClicks &&
             numberOfClicks >= achievement.requiredClicks
+        ) {
+            achievement.acquired = true;
+            message(achievement.description, 'achievement');
+            return false;
+        } else if (
+            achievement.requiredTotal &&
+            acquiredBjörfärs >= achievement.requiredTotal
         ) {
             achievement.acquired = true;
             message(achievement.description, 'achievement');
@@ -163,24 +217,39 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Sop',
+        name: 'Björk',
         cost: 10,
         amount: 1,
     },
     {
-        name: 'Kvalitetsspade',
+        name: 'Björn',
         cost: 50,
         clicks: 2,
     },
     {
-        name: 'Skottkärra',
+        name: 'Stor björn',
         cost: 100,
-        amount: 10,
+        clicks: 10,
     },
     {
-        name: 'Grävmaskin',
+        name: 'Stor björk',
         cost: 1000,
         amount: 100,
+    },
+    {
+        name: 'Grinder',
+        cost: 5000,
+        clicks: 500,
+    },
+    {
+        name: 'Björkträdgård',
+        cost: 5000,
+        amount: 500,
+    },
+    {
+        name: 'Björfärs ritual',
+        cost: 10000,
+        amount: 1000,
     },
 ];
 
@@ -213,17 +282,17 @@ function createCard(upgrade) {
     } else {
         header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
     }
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Köp för ${upgrade.cost} björfärs.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
             money -= upgrade.cost;
-            upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            upgrade.cost = Math.round(upgrade.cost * 1.5);
+            cost.textContent = 'Köp för ' + upgrade.cost + ' björfärs';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
+            message('Du har köpt en uppgradering. Det är för ditt eget bästa.', 'success');
         } else {
             message('Du har inte råd.', 'warning');
         }
