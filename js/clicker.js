@@ -247,6 +247,11 @@ upgrades = [
         amount: 500,
     },
     {
+        name: 'Björkarnas visdom',
+        cost: 10000,
+        clicks: 1000,
+    },
+    {
         name: 'Björfärs ritual',
         cost: 10000,
         amount: 1000,
