@@ -124,7 +124,7 @@ audio {
 }
 
 /* game-currency är en lista med list items */
-.item > h3, h2 {
+.item > h5, h4, h3, h2 {
     display: flex;
     justify-content: space-between;
     gap: var(--space-xs-s);

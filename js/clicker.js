@@ -54,13 +54,18 @@ let achievements = [
         acquired: false,
     },
     {
-        description: 'Unlocked: Björfärs björfärs björfärs björfärssås björfärssås björfärssås',
+        description: 'Unlocked: Björfärs björfärs björfärs björfärssås björfärssås',
         requiredClicks: 10000,
         acquired: false,
     },
     {
-        description: 'Unlocked: BJÖRFÄRSÅS?',
+        description: 'Unlocked: BJÖRFÄRSSÅS?',
         requiredClicks: 500,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: En hand full av björfärssås',
+        requiredClicks: 2000,
         acquired: false,
     },
     {
@@ -71,6 +76,21 @@ let achievements = [
     {
         description: 'Unlocked: Ett gemensamt mål',
         requiredUpgrades: 100,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Björk i blom',
+        requiredUpgrades: 150,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Bumbi-björk',
+        requiredUpgrades: 200,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Den rena, heliga kådan',
+        requiredUpgrades: 250,
         acquired: false,
     },
     {
@@ -95,10 +115,29 @@ let achievements = [
     },
     {
         description: 'Unlocked: Det björfärssåsiga guldet',
-        requiredTotal: 200000,
+        requiredTotal: 1000000,
         acquired: false,
     },
-    
+    {
+        description: 'Unlocked: Bumbi-björfärs',
+        requiredTotal: 2000000,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Dunder-björfärs',
+        requiredTotal: 10000000,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Gudomlig björfärs',
+        requiredTotal: 20000000,
+        acquired: false,
+    },
+    {
+        description: 'Unlocked: Legenderna talar om en björfärs insamlare..',
+        requiredTotal: 50000000,
+        acquired: false,
+    },
 ];
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
@@ -121,7 +160,7 @@ clickerButton.addEventListener(
         // console.log(clicker.score);
         acquiredBjörfärs += moneyPerClick;
 
-        clickAudio.play()
+        clickAudio.cloneNode().play()
     },
     false
 );
@@ -255,6 +294,16 @@ upgrades = [
         name: 'Björfärs ritual',
         cost: 10000,
         amount: 1000,
+    },
+    {
+        name: 'Helig kåda',
+        cost: 20000,
+        clicks: 1500,
+    },
+    {
+        name: 'Björ-kryddor',
+        cost: 20000,
+        amount: 1500,
     },
 ];
 
