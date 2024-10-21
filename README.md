@@ -58,3 +58,12 @@ Se classroom.
 GLHF!
 
 Tack [Malte](https://github.com/Mafrans) för lite ideér.
+
+
+    {
+        title: 'Björfärs insamlaren',
+        tagline: 'Samla in björfärs åt björnarna',
+        url: 'https://github.com/HermanWesterlund/wu2-clicker/settings/pages',
+        git: 'https://github.com/HermanWesterlund/wu2-clicker',
+        author: 'Herman Vesterlund'
+    },
