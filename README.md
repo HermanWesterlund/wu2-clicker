@@ -63,7 +63,7 @@ Tack [Malte](https://github.com/Mafrans) för lite ideér.
     {
         title: 'Björfärs insamlaren',
         tagline: 'Samla in björfärs åt björnarna',
-        url: 'https://github.com/HermanWesterlund/wu2-clicker/settings/pages',
+        url: https://hermanwesterlund.github.io/wu2-clicker/,
         git: 'https://github.com/HermanWesterlund/wu2-clicker',
         author: 'Herman Vesterlund'
     },
